@@ -18,12 +18,12 @@ SIGNAL frametrack  : STD_LOGIC_VECTOR(3 downto 0) :="0000";
 SIGNAL linerA2P : STD_LOGIC_VECTOR(15 downto 0) :="0000000000000000"; -- A-P
 SIGNAL sin1dat, sin2dat, sin3dat : STD_LOGIC_VECTOR(15 downto 0);
 SIGNAL La, Lb, Lc, Ld, Le, Lf, Lg, Lh, Li, Lj, Lk, Ll, Lm, Ln, Lo, Lp : STD_LOGIC_VECTOR(15 downto 0);
-SIGNAL a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16 : STD_LOGIC_VECTOR(32 downto 1); --Frame1 
-SIGNAL b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16 : STD_LOGIC_VECTOR(32 downto 1); --Frame2
-SIGNAL c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16 : STD_LOGIC_VECTOR(32 downto 1); --Frame3
+SIGNAL a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16 : STD_LOGIC_VECTOR(32 downto 1); --DLine 0 
+SIGNAL b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16 : STD_LOGIC_VECTOR(32 downto 1); --DLine 1
+SIGNAL c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16 : STD_LOGIC_VECTOR(32 downto 1); --DLine 2
 --SIGNAL 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 : STD_LOGIC_VECTOR(32 downto 1); --Frame
 
-BEGIN--CLKDIVIDER
+BEGIN--CLKPROC
 	clkdiv : PROCESS(clk12m)
 	BEGIN
 		IF rising_edge(clk12m) THEN
@@ -60,7 +60,7 @@ BEGIN--CLKDIVIDER
 	Lp <= "0000000000000001";
 	--  DATA ASSIGN 
 	--      1                              32
-	a1  <= "00000000000000000000000000000000"; -- a Frame1
+	a1  <= "00000000000000000000000000000000"; -- a DLine 0
 	a2  <= "00000000000000000000000000000000"; -- b
 	a3  <= "00000000000000000000000000000000"; -- c
 	a4  <= "00000000000000000000000000000000"; -- d
@@ -77,7 +77,7 @@ BEGIN--CLKDIVIDER
 	a15 <= "00000000000000000000000000000000"; -- o
 	a16 <= "00000000000000000000000000000000"; -- p
 	
-	b1  <= "00000000000000000000000000000000"; -- a Frame2
+	b1  <= "00000000000000000000000000000000"; -- a DLine1
 	b2  <= "00000000000000000000000000000000"; -- b
 	b3  <= "00000000000000000000000000000000"; -- c
 	b4  <= "00000000000000000000000000000000"; -- d
